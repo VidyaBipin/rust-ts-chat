@@ -1,9 +1,8 @@
-use rusty_chat::server::Server;
+use rust_chat::server::Server
 
 #[tokio::main]
-async fn main() {
-    env_logger::init();
-
-    let server = Server::new(8080);
-    server.run().await;
+async fn main() -> Result<(), Box<dyn std::error::Error>>{
+    env_logger::init()
+    Server::new(8080).run().await?;
+Ok(())
 }
